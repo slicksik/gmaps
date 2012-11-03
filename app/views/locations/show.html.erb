@@ -124,7 +124,7 @@
       <!-- Clicking this placeholder fires the mapModal Reveal modal -->
      
       
-          <%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 6},"markers" => { "data" => @json }) %>
+          
         
       
 
@@ -136,7 +136,11 @@
 
     <!-- End Sidebar -->
   </div>
-
+<div class = "row">
+  <div class = "twelve columns">
+    <%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 6},"markers" => { "data" => @json }) %>
+  </div>
+</div>
   <!-- End Main Content and Sidebar -->
 
 
