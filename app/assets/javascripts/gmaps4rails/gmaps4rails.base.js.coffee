@@ -24,7 +24,7 @@ class @Gmaps4Rails
     @userLocation = null       #contains user's location if geolocalization was performed and successful
 
     #empty slots
-    @geolocationSuccess = -> false  #triggered when geolocation succeeds. Can be customized.
+    @geolocationSuccess = -> true  #triggered when geolocation succeeds. Can be customized.
     @geolocationFailure = -> false  #triggered when geolocation fails. If customized, must be like= function(navigator_handles_geolocation){} where 'navigator_handles_geolocation' is a boolean
     @callback           = -> false  #to let user set a custom callback function
     @customClusterer    = -> false  #to let user set custom clusterer pictures
@@ -41,8 +41,8 @@ class @Gmaps4Rails
       zoom: 7
       maxZoom: null
       minZoom: null
-      auto_adjust : true      # adjust the map to the markers if set to true
-      auto_zoom: true         # zoom given by auto-adjust
+      auto_adjust : false      # adjust the map to the markers if set to true
+      auto_zoom: false         # zoom given by auto-adjust
       bounds: []              # adjust map to these limits. Should be [{"lat": , "lng": }]
       raw: {}                  # raw json to pass additional options
 
