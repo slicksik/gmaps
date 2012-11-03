@@ -200,7 +200,7 @@
   <b>Latitude:</b>
   <%= @location.latitude %>
 </p>
-<%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 6},"markers" => { "data" => @json }) %>
+
 
  <% content_for :scripts do %>
         <script type="text/javascript">
