@@ -122,11 +122,11 @@
       <h5>Map</h5>
 
       <!-- Clicking this placeholder fires the mapModal Reveal modal -->
-      <p>
-        <a href="" data-reveal-id="mapModal">
+     
+      
           <%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 6},"markers" => { "data" => @json }) %>
-        <a href="" data-reveal-id="mapModal">View Map</a>
-      </p>
+        
+      
 
       <p>
         <%= @location.address %>
