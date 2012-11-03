@@ -7,7 +7,7 @@ class Location < ActiveRecord::Base
   address
   end
   def gmaps4rails_infowindow
-"<h4>#{name}</h4>" << "<h4>#{address}</h4>"
+"<p>#{name}</p>" << "<p>#{address}</p>"
 end
 
  def gmaps4rails_title
