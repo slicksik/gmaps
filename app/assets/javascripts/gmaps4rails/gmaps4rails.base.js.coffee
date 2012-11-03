@@ -34,8 +34,8 @@ class @Gmaps4Rails
     @default_map_options =
       id: 'map'
       draggable: true
-      detect_location: false  # should the browser attempt to use geolocation detection features of HTML5?
-      center_on_user: false   # centers map on the location detected through the browser
+      detect_location: true  # should the browser attempt to use geolocation detection features of HTML5?
+      center_on_user: true   # centers map on the location detected through the browser
       center_latitude: 0
       center_longitude: 0
       zoom: 7

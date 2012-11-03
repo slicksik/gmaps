@@ -19,9 +19,27 @@
   <b>Latitude:</b>
   <%= @location.latitude %>
 </p>
-<%= gmaps4rails(@json) %>
+<%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 6},"markers" => { "data" => @json }) %>
 
+ <% content_for :scripts do %>
+        <script type="text/javascript">
 
+setInterval( function(){
+ Gmaps.map.createMarker({
+   Lat: Gmaps.map.userLocation.lat(),
+   Lng: Gmaps.map.userLocation.lng(), 
+   rich_marker: null, 
+   marker_picture: "https://a248.e.akamai.net/assets.github.com/images/modules/about_page/octocat.png?1315937507",
+   marker_width: 160,
+   marker_height: 160,
+   marker_anchor: null,
+   shadow_anchor: null,
+   shadow_picture: null,
+   shadow_width: null,
+   shadow_height: null
+   })},2000)
+           </script>
+           <% end %>
 
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>
