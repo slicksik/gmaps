@@ -7,8 +7,7 @@ class LocationsController < ApplicationController
    
     @json = Location.all.to_gmaps4rails do |location, marker|
     marker.json({ :id => location.id})
-  end
-
+end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @locations }
