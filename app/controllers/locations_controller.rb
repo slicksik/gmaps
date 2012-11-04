@@ -5,7 +5,9 @@ class LocationsController < ApplicationController
   def index
     @locations = Location.all
    
-    @json = Location.all.to_gmaps4rails
+    @json = Location.all.to_gmaps4rails do |location, marker|
+    marker.json({ :id => user.id})
+  end
 
     respond_to do |format|
       format.html # index.html.erb
