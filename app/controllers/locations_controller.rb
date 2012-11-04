@@ -6,7 +6,7 @@ class LocationsController < ApplicationController
     @locations = Location.all
    
     @json = Location.all.to_gmaps4rails do |location, marker|
-    marker.json({ :id => user.id})
+    marker.json({ :id => location.id})
   end
 
     respond_to do |format|
