@@ -33,10 +33,8 @@ google.maps.event.addListener(marker, 'click', function(){
 <% end %>
 <h3> Ιατροί κοντά σας </h3>
 <ul>
-  <% for location in @location.nearbys([Gmaps.map.userLocation.lat(),Gmaps.map.userLocation.lng()], 3) do %>
-  <li> <%= location.name %>,<%= location.address %>
-    
-  </li>
+  <% for location in @location.nearbys([u.lat,u.lon] do %>
+  <li> <%= location.name %>,<%= location.address %></li>
   <% end %>
 </ul>
 <table>
