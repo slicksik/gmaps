@@ -55,8 +55,9 @@ google.maps.event.addListener(marker, 'click', function(){
 <br />
 
 <%= link_to 'New Location', new_location_path %>
+
 <ul>
-<% for location in @location.nearbys %>
+<% for location in @location.near(10) %>
 <li> <%= link_to location.address , location %> 
 </li>
 <% end %>
