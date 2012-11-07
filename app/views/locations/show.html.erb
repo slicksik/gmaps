@@ -202,8 +202,9 @@
 </p>
 
 <ul>
-  <% for location in @location.nearbys do %>
-  <li> <%= location.address %>
+  <% for location in @location.nearbys(3) do %>
+  <li> <%= location.name %><%= location.address %>
+    
   </li>
   <% end %>
 </ul>
