@@ -201,6 +201,12 @@
   <%= @location.latitude %>
 </p>
 
+<ul>
+  <% for location in @location.nearbys do %>
+  <li> <%= location.address %>
+  </li>
+  <% end %>
+</ul>
 
  <% content_for :scripts do %>
         <script type="text/javascript">

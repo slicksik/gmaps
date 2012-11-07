@@ -1,9 +1,10 @@
 class Location < ActiveRecord::Base
   attr_accessible :address, :latitude, :longitude, :name
   
-  acts_as_gmappable
+  acts_as_gmappable :process_geocoding => false
 
-  reverse_geocoded_by :latitude, :longitude
+  geocoded_by :address
+  after_validation :geocode
   
   
   def gmaps4rails_address
