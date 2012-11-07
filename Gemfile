@@ -5,6 +5,7 @@ gem 'rails', '3.2.7'
 gem "gmaps4rails", "~> 1.5.6"
 gem 'compass-rails'
 gem 'zurb-foundation'
+gem 'geocoder'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
