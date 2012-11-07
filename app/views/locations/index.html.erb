@@ -31,7 +31,14 @@ google.maps.event.addListener(marker, 'click', function(){
    });
    </script>
 <% end %>
-
+<h3> Ιατροί κοντά σας </h3>
+<ul>
+  <% for location in Location.near([u.lat, u.lon], 3) do %>
+  <li> <%= location.name %>,<%= location.address %>
+    
+  </li>
+  <% end %>
+</ul>
 <table>
   <tr>
     <th>Όνομα</th>
