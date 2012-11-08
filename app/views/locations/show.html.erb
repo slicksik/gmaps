@@ -203,7 +203,8 @@
 
 <ul>
   <% for location in @location.nearbys(3) do %>
-  <li> <%= location.name %>, <%= location.address %>
+  <li> <%= location.name %>, <%= location.address %>,
+    <%= location.distance.round(2) %>
     
   </li>
   <% end %>

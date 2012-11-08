@@ -1,4 +1,20 @@
 
+    <div class="three columns">
+      <div class ="sidebar">
+      <h1>MAIN CONTROL </h1>
+      <%= search_form_for @search do |f| %>
+      <div class = "field">
+        <%= f.label :address_cont, "Perioxi" %>
+        <%= f.text_field :address_cont %>
+      </div>
+      <div class ="actions">
+        <%= f.submit "Αναζήτηση" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+   
+  
 
 
 <%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 13},"markers" => { "data" => @json}) %>
@@ -31,11 +47,11 @@ google.maps.event.addListener(marker, 'click', function(){
    });
    </script>
 <% end %>
-<h3>Η πόλη σας είναι <%= @result.street_address %> ,<%= @result.formatted_address %>, <%= @result.state %>, <%= @result.city %></h3>
+<h3>Η πόλη σας είναι <%= @result.address %> ,<%= @result.state %>, <%= @result.city %></h3>
 <h3>Κοντινοί σας γυναικολόγοι </h3>
 <ul>
   <% for location in Location.near( "@city", 4) do %>
-  <li> <%= location.address %>, <%= location.name %>, <%= location.distance %> miles </li>
+  <li> <%= location.address %>, <%= location.name %>, <%= location.distance.round(location.distance,2) %> miles </li>
   <% end %>
 </ul>
 
