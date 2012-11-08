@@ -31,7 +31,7 @@ google.maps.event.addListener(marker, 'click', function(){
    });
    </script>
 <% end %>
-<h3>Η πόλη σας είναι <%= @city %>, <%= @ip %>, <%= @result.address %> , <%= @result.state %>, <%= @result.city %></h3>
+<h3>Η πόλη σας είναι <%= @result.street_address %> ,<%= @result.formatted_address %>, <%= @result.state %>, <%= @result.city %></h3>
 <h3>Κοντινοί σας γυναικολόγοι </h3>
 <ul>
   <% for location in Location.near( "@city", 4) do %>
