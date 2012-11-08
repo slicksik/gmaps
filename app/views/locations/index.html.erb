@@ -1,7 +1,7 @@
 
 
 
-<%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 6},"markers" => { "data" => @json}) %>
+<%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 13},"markers" => { "data" => @json}) %>
  
  <% content_for :scripts do %>
         <script type="text/javascript">
@@ -31,6 +31,13 @@ google.maps.event.addListener(marker, 'click', function(){
    });
    </script>
 <% end %>
+<h3>Η πόλη σας είναι <%= @city %>, <%= @ip %> </h3>
+<h3>Κοντινοί σας γυναικολόγοι </h3>
+<ul>
+  <% for location in Location.near("Athens, Greece", 4) do %>
+  <li> <%= location.address %>, <%= location.name %>, <%= location.distance.round(2) %> miles </li>
+  <% end %>
+</ul>
 
 <table>
   <tr>

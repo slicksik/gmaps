@@ -4,9 +4,9 @@ class LocationsController < ApplicationController
 
   def index
     @locations = Location.all
-   
     @json = Location.all.to_gmaps4rails 
-    
+    @ip = request.ip
+    @city = request.location.city
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @locations }
@@ -25,6 +25,7 @@ class LocationsController < ApplicationController
       format.json { render json: @location }
     end
   end
+
 
   # GET /locations/new
   # GET /locations/new.json
