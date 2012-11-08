@@ -35,7 +35,7 @@ google.maps.event.addListener(marker, 'click', function(){
 <h3>Κοντινοί σας γυναικολόγοι </h3>
 <ul>
   <% for location in Location.near("Athens, Greece", 4) do %>
-  <li> <%= location.address %>, <%= location.name %>, <%= location.distance.round(2) %> miles </li>
+  <li> <%= location.address %>, <%= location.name %>, <%= location.distance %> miles </li>
   <% end %>
 </ul>
 
