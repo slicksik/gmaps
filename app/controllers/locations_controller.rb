@@ -7,6 +7,7 @@ class LocationsController < ApplicationController
     @json = Location.all.to_gmaps4rails 
     @ip = request.ip
     @city = request.location.city
+    @result = request.location
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @locations }

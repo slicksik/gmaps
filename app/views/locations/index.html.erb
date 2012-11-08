@@ -31,10 +31,10 @@ google.maps.event.addListener(marker, 'click', function(){
    });
    </script>
 <% end %>
-<h3>Η πόλη σας είναι <%= @city %>, <%= @ip %> </h3>
+<h3>Η πόλη σας είναι <%= @city %>, <%= @ip %>, <%= @result.address %> , <%= @result.state %>, <%= @result.city %></h3>
 <h3>Κοντινοί σας γυναικολόγοι </h3>
 <ul>
-  <% for location in Location.near("Athens, Greece", 4) do %>
+  <% for location in Location.near( "@city", 4) do %>
   <li> <%= location.address %>, <%= location.name %>, <%= location.distance %> miles </li>
   <% end %>
 </ul>
