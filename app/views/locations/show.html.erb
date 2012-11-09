@@ -1,12 +1,30 @@
 <!-- Top Bar -->
+<% content_for :scripts do %>
+        <script type="text/javascript">
 
+setInterval( function(){
+ Gmaps.map.createMarker({
+   Lat: Gmaps.map.userLocation.lat(),
+   Lng: Gmaps.map.userLocation.lng(), 
+   rich_marker: null, 
+   marker_picture: "",
+   marker_width: 160,
+   marker_height: 160,
+   marker_anchor: null,
+   shadow_anchor: null,
+   shadow_picture: null,
+   shadow_width: null,
+   shadow_height: null
+   })},2000)
+           </script>
+           <% end %>
   <nav class="top-bar">
     <ul>
       <!-- Title Area -->
       <li class="name">
         <h1>
-          <a href="#">
-            Top Bar Title
+          <a href="/locations/">
+            Gynaikologoi
           </a>
         </h1>
       </li>
@@ -138,7 +156,7 @@
   </div>
 <div class = "row">
   <div class = "twelve columns">
-    <%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 6},"markers" => { "data" => @json }) %>
+    <%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => false, "auto_zoom" => false, "zoom" => 11},"markers" => { "data" => @json }) %>
   </div>
 </div>
   <!-- End Main Content and Sidebar -->
@@ -204,31 +222,13 @@
 <ul>
   <% for location in @location.nearbys(3) do %>
   <li> <%= location.name %>, <%= location.address %>,
-    <%= location.distance.round(2) %>
+    <%= location.distance %>
     
   </li>
   <% end %>
 </ul>
 
- <% content_for :scripts do %>
-        <script type="text/javascript">
-
-setInterval( function(){
- Gmaps.map.createMarker({
-   Lat: Gmaps.map.userLocation.lat(),
-   Lng: Gmaps.map.userLocation.lng(), 
-   rich_marker: null, 
-   marker_picture: "https://a248.e.akamai.net/assets.github.com/images/modules/about_page/octocat.png?1315937507",
-   marker_width: 160,
-   marker_height: 160,
-   marker_anchor: null,
-   shadow_anchor: null,
-   shadow_picture: null,
-   shadow_width: null,
-   shadow_height: null
-   })},2000)
-           </script>
-           <% end %>
+ 
 
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>
