@@ -3,11 +3,12 @@ class LocationsController < ApplicationController
   # GET /locations.json
 
   def index
+    # Search from Ransack , then send json to gmaps4rails
     @search = Location.search(params[:q])
     @locations = @search.result
     @json = @search.result.to_gmaps4rails 
-    
-    @result = request.location
+    # Request Location from Geocoder's FreegoIP ps: it sucks
+    @result = request.location 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @locations }
