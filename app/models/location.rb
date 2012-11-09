@@ -1,6 +1,7 @@
 class Location < ActiveRecord::Base
   attr_accessible :address, :latitude, :longitude, :name
   
+  
   acts_as_gmappable :process_geocoding => false
 
   geocoded_by :address

@@ -206,7 +206,7 @@ setInterval( function(){
 
 <p>
   <b>Address:</b>
-  
+  <%= @location.address %>
 </p>
 
 <p>
@@ -219,9 +219,10 @@ setInterval( function(){
   <%= @location.latitude %>
 </p>
 
+
 <ul>
   <% for location in @location.nearbys(3) do %>
-  <li> <%= location.name %>, <%= location.address %>,
+  <li> <%= link_to location.name, location_path %>, <%= location.address %>,
     <%= location.distance %>
     
   </li>
