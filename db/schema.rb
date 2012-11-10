@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121109192100) do
+ActiveRecord::Schema.define(:version => 20121109215144) do
+
+  create_table "areas", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "cities", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "locations", :force => true do |t|
     t.string   "name"
@@ -22,6 +34,13 @@ ActiveRecord::Schema.define(:version => 20121109192100) do
     t.datetime "updated_at", :null => false
     t.boolean  "gmaps"
     t.string   "perioxi"
+    t.integer  "area_id"
+  end
+
+  create_table "perioxis", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

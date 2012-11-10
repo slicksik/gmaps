@@ -1,5 +1,7 @@
 class Location < ActiveRecord::Base
   attr_accessible :address, :latitude, :longitude, :name
+  belongs_to :city
+  accepts_nested_attributes_for :city
   
   
   acts_as_gmappable :process_geocoding => false

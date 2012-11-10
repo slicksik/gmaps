@@ -49,3 +49,4 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'ransack'
+gem 'simple_form'
