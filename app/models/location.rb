@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  attr_accessible :address, :latitude, :longitude, :name
+  attr_accessible :address, :latitude, :longitude, :name, :city_id
   belongs_to :city
   accepts_nested_attributes_for :city
   
