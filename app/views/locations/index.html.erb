@@ -6,6 +6,8 @@
       <div class = "field">
         <%= f.label :address_cont, "Επιλέξτε την Περιοχή που σας ενδιαφέρει" %>
         <%= f.text_field :address_cont %>
+       <%= f.collection_select :city_id_in, City.all, :id, :name, {}, {:multiple => false} %>
+
       </div>
       <div class ="actions">
         <%= f.submit "Αναζήτηση" %>
