@@ -5,8 +5,7 @@
       <%= search_form_for @search do |f| %>
       <div class = "field">
         <%= f.label :address_cont, "Επιλέξτε την Περιοχή που σας ενδιαφέρει" %>
-        <%= f.text_field :address_cont %>
-       <%= f.collection_select :city_id_in, City.all, :id, :name, {}, {:multiple => false} %>
+       <%= f.collection_select :city_id_in, City.order('name ASC').all, :id, :name,  {:include_blank => true}, {:multiple => false} %>
 
       </div>
       <div class ="actions">
