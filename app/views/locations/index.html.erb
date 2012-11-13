@@ -4,7 +4,7 @@
       <h1>MAIN CONTROL </h1>
       <%= search_form_for @search do |f| %>
       <div class = "field">
-        <%= f.label :address_cont, "Επιλέξτε την Περιοχή που σας ενδιαφέρει" %>
+        <%= f.label :address_cont, "Επιλέξτε την περιοχή σας!" %>
        <%= f.collection_select :city_id_in, City.order('name ASC').all, :id, :name,  {:include_blank => true}, {:multiple => false} %>
 
       </div>
