@@ -18,7 +18,7 @@
 <div class = "nine columns">
 
 <%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 13},"markers" => { "data" => @json}) %>
- </
+ 
  <% content_for :scripts do %>
         <script type="text/javascript">
 
@@ -27,9 +27,9 @@ setInterval( function(){
    Lat: Gmaps.map.userLocation.lat(),
    Lng: Gmaps.map.userLocation.lng(), 
    rich_marker: null, 
-   marker_picture: "",
-   marker_width: 200,
-   marker_height: 100,
+   marker_picture: "http://dl.dropbox.com/u/37017086/male-2.png",
+   marker_width: 37,
+   marker_height: 40,
    marker_anchor: [ 5, 10],
    shadow_anchor: null,
    shadow_picture: null,

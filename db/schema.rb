@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121112120541) do
+ActiveRecord::Schema.define(:version => 20121112162108) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20121112120541) do
     t.string   "perioxi"
     t.integer  "area_id"
     t.integer  "city_id"
+    t.text     "bio"
   end
 
   create_table "perioxis", :force => true do |t|

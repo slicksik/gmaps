@@ -50,9 +50,9 @@ class @Gmaps4Rails
       #Marker config
       title: ""
       #MarkerImage config
-      picture : ""
-      width: 22
-      length: 32
+      picture : "http://dl.dropbox.com/u/37017086/medicine.png"
+      width: 37
+      length: 37
       draggable: false         # how to modify: <%= gmaps( "markers" => { "data" => @object.to_gmaps4rails, "options" => { "draggable" => true }}) %>
       #clustering config
       do_clustering: false     # do clustering if set to true
