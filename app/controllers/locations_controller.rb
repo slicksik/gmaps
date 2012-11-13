@@ -9,6 +9,7 @@ class LocationsController < ApplicationController
     @locations = @search.result.limit(10)
 
     @json = @search.result.to_gmaps4rails 
+   
     # Request Location from Geocoder's FreegoIP ps: it sucks
     @result = request.location 
    
