@@ -1,18 +1,18 @@
 .map_container {
   padding: 5px;
-  width: 960px;
+  width: 700px;
   
 }
-.map_container img{max-width: none;}
+.map_container img{max-width: none; height: auto;}
 
 .gmaps4rails_map {
   
-  width: 960px;
-  height: 600px;
+  width: 700px;
+  height: 400px;
   max-width: none;
  
 }
-.gmaps4rails_map img {max-width: none;
+.gmaps4rails_map img {max-width: none; height: auto;
 }
 .bing_map {
    position: absolute;

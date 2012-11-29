@@ -48,5 +48,6 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
+# Below are search and input gems 
 gem 'ransack'
 gem 'simple_form'

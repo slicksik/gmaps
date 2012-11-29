@@ -1,7 +1,7 @@
 
     <div class="three columns">
-      <div class ="sidebar">
-      <h1>MAIN CONTROL </h1>
+      
+      <h3>Εύρεση Γυναικολόγων</h3>
       <%= search_form_for @search do |f| %>
       <div class = "field">
         <%= f.label :address_cont, "Επιλέξτε την περιοχή σας!" %>
@@ -12,14 +12,13 @@
         <%= f.submit "Αναζήτηση" %>
       </div>
       <% end %>
-    </div>
   </div>
    
   
 <div class = "nine columns">
 
 <%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 13},"markers" => { "data" => @json}) %>
- 
+ </div>
  <% content_for :scripts do %>
         <script type="text/javascript">
 
@@ -48,14 +47,12 @@ google.maps.event.addListener(marker, 'click', function(){
    });
    </script>
 <% end %>
-<h3>Η πόλη σας είναι <%= @result.address %> ,<%= @result.state %>, <%= @result.city %></h3>
-<h3>Κοντινοί σας γυναικολόγοι </h3>
 <ul>
   <% for location in Location.near( "@city", 4) do %>
   <li> <%= location.address %>, <%= location.name %>, <%= location.distance.round(location.distance,2) %> miles </li>
   <% end %>
 </ul>
-
+<div class = twelve columns">
 <table>
   <tr>
     <th>Όνομα</th>
@@ -75,7 +72,7 @@ google.maps.event.addListener(marker, 'click', function(){
   </tr>
 <% end %>
 </table>
-
+</div>
 <br />
 
 <%= link_to 'New Location', new_location_path %>
