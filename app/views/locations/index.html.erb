@@ -17,9 +17,63 @@
   
 <div class = "nine columns">
 
-<%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 13},"markers" => { "data" => @json}) %>
+
+
+<%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 13},"markers" => { "data" => @json , "options" => {"custom_infowindow_class" => "yellow", "do_clustering" => true}}) %>
  </div>
+ 
+
  <% content_for :scripts do %>
+ <script type ="text/javascript">
+
+Gmaps.map.customClusterer = function() {
+  var url = "http://gmaps-utility-library.googlecode.com/svn/trunk/markerclusterer/1.0/images/";
+  return [{
+    textSize: 10, 
+    textColor: '#ff0000',
+    url: url + 'heart30.png',
+    height: 26,
+    width: 30,
+  },
+  {
+    textSize: 14, 
+    textColor: '#ffff00',
+    url: url + 'heart40.png', 
+    height: 35,
+    width: 40,
+  },
+  {
+    textSize: 18, 
+    textColor: '#0000ff',
+    url: url + 'heart50.png',
+    width: 50,
+    height: 44,
+  }];
+}
+</script>
+
+ <script type="text/javascript">
+ Gmaps.map.infobox = function(boxText) {
+  return {
+     content: boxText
+    ,disableAutoPan: false
+    ,maxWidth: 0
+    ,pixelOffset: new google.maps.Size(-140, 0)
+    ,zIndex: null
+    ,boxStyle: { 
+      background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.5/examples/tipbox.gif') no-repeat"
+      ,opacity: 0.75
+      ,width: "280px"
+       }
+    ,closeBoxMargin: "10px 2px 2px 2px"
+    ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
+    ,infoBoxClearance: new google.maps.Size(1, 1)
+    ,isHidden: false
+    ,pane: "floatPane"
+    ,enableEventPropagation: false
+ }};
+ </script>
+
         <script type="text/javascript">
 
 setInterval( function(){
@@ -46,12 +100,16 @@ google.maps.event.addListener(marker, 'click', function(){
    window.location(base_url + marker.id);
    });
    </script>
+
+
+
 <% end %>
 <ul>
   <% for location in Location.near( "@city", 4) do %>
   <li> <%= location.address %>, <%= location.name %>, <%= location.distance.round(location.distance,2) %> miles </li>
   <% end %>
 </ul>
+
 <div class = twelve columns">
 <table>
   <tr>

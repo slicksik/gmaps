@@ -8,10 +8,9 @@ class LocationsController < ApplicationController
     
     @locations = @search.result.limit(10)
 
-    @json = @search.result.to_gmaps4rails 
-   
-    # Request Location from Geocoder's FreegoIP ps: it sucks
-    @result = request.location 
+    @json = @locations.to_gmaps4rails do |location, marker|
+    marker.infowindow "<p><a href =/locations/#{location.id}> <h4>#{location.name}</h4> </a></p>" << "<p>#{location.address}</p>"
+  end
    
     respond_to do |format|
       format.html # index.html.erb

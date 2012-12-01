@@ -55,8 +55,9 @@ class @Gmaps4Rails
       length: 37
       draggable: false         # how to modify: <%= gmaps( "markers" => { "data" => @object.to_gmaps4rails, "options" => { "draggable" => true }}) %>
       #clustering config
-      do_clustering: false     # do clustering if set to true
-      randomize: false         # Google maps can't display two markers which have the same coordinates. This randomizer enables to prevent this situation from happening.
+      do_clustering: true     # do clustering if set to true
+      clusterer_gridSize: 50
+      randomize: true         # Google maps can't display two markers which have the same coordinates. This randomizer enables to prevent this situation from happening.
       max_random_distance: 100 # in meters. Each marker coordinate could be altered by this distance in a random direction
       list_container: null     # id of the ul that will host links to all markers
       offset: 0                # used when adding_markers to an existing map. Because new markers are concated with previous one, offset is here to prevent the existing from being re-created.
@@ -442,3 +443,4 @@ class @Gmaps4Rails
 
   #gives a value between -1 and 1
   random : -> return(Math.random() * 2 -1)
+
