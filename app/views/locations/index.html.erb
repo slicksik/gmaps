@@ -19,7 +19,7 @@
 
 
 
-<%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 13},"markers" => { "data" => @json , "options" => {"custom_infowindow_class" => "yellow", "do_clustering" => true}}) %>
+<%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 13},"direction"   => { "data" => { :from => "Palaio Faliro", :to => "@location.address" }, "options" =>{ "display_panel" => true, "panel_id" => "instructions" } },"markers" => { "data" => @json , "options" => {"custom_infowindow_class" => "yellow"}}) %>
  </div>
  
 

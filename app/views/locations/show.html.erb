@@ -84,7 +84,7 @@ setInterval( function(){
       
           
         
-      
+      <%= @lat_lng %>
 
       <p>
         <%= @location.address %>
@@ -96,7 +96,8 @@ setInterval( function(){
   </div>
 <div class = "row">
   <div class = "twelve columns">
-    <%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "auto_zoom" => false, "zoom" => 11},"markers" => { "data" => @json }) %>
+    
+<%= gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 13},"direction"   => { "data" => { :from => "voula,athens", :to => @location.address }, "options" =>{ "display_panel" => true, "panel_id" => "instructions" } },"markers" => { "data" => @json , "options" => {"custom_infowindow_class" => "yellow"}}) %>
   </div>
 </div>
   <!-- End Main Content and Sidebar -->

@@ -39,7 +39,7 @@ class @Gmaps4Rails
       center_latitude: 0
       center_longitude: 0
       zoom: 12
-      maxZoom: 12
+      maxZoom: 16
       minZoom: 6
       auto_adjust : false      # adjust the map to the markers if set to true
       auto_zoom: false       # zoom given by auto-adjust
